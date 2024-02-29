@@ -2,9 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
-import config from './config'
-
-const { openWeatherMapApiKey, nasaApiKey } = config
 
 const weatherDescriptionMap = {
   Cliar: '晴れ',
@@ -56,6 +53,7 @@ const App = () => {
   const updateWindowDimensions = useCallback(() => {
     const getAstronomyPicture = async () => {
       try {
+        const nasaApiKey = 'fDlVALNuPbgnCVbP6iDtTNBLxK5pBBD69ka5Dc2W'
         const nasaApiUrl = `https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}`
         const nasaResponse = await axios.get(nasaApiUrl)
         setAstronomyPicture(nasaResponse.data.url)
@@ -78,6 +76,7 @@ const App = () => {
 
   const getAstronomyPicture = async date => {
     try {
+      const nasaApiKey = 'fDlVALNuPbgnCVbP6iDtTNBLxK5pBBD69ka5Dc2W'
       const nasaApiUrl = `https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&date=${date}`
       const nasaResponse = await axios.get(nasaApiUrl)
       setAstronomyPicture(nasaResponse.data.url)
@@ -89,6 +88,7 @@ const App = () => {
 
   const getWeatherData = async () => {
     try {
+      const openWeatherMapApiKey = '5d08d821e75ed5eed7d00beaad0b1f71'
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${openWeatherMapApiKey}`
       const response = await axios.get(apiUrl)
       setWeatherData(response.data)

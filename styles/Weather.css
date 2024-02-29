@@ -1,0 +1,14 @@
+/* Weather.css */
+
+.weather-container {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
